@@ -32,11 +32,11 @@ jobs:
             --build-arg REACT_APP_FIREBASE_STORAGE_BUCKET=${{ secrets.REACT_APP_FIREBASE_STORAGE_BUCKET }} \
             --build-arg REACT_APP_FIREBASE_MESSAGING_SENDER_ID=${{ secrets.REACT_APP_FIREBASE_MESSAGING_SENDER_ID }} \
             --build-arg REACT_APP_FIREBASE_APP_ID=${{ secrets.REACT_APP_FIREBASE_APP_ID }} \
-            -t ghcr.io/${{ github.repository_owner }}/sanz_cafe_admin:latest .
+            -t ghcr.io/${{ github.repository_owner.toLowerCase() }}/sanz_cafe_admin:latest .
 
       - name: Push image to GHCR
         run: |
-          docker push ghcr.io/${{ github.repository_owner }}/sanz_cafe_admin:latest
+          docker push ghcr.io/${{ github.repository_owner.toLowerCase() }}/sanz_cafe_admin:latest
 
       - name: Trigger Railway Deploy
         run: |
