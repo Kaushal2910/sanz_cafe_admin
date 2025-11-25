@@ -46,10 +46,10 @@ async function seedInitialMenuDataOnce() {
   try {
     const colRef = collection(db, 'menu_items');
     const snapshot = await getDocs(colRef);
-    /* if (!snapshot.empty) {
+    if (!snapshot.empty) {
       console.log('menu_items already populated — skipping seed');
       return;
-    } */
+    }
 
     console.log('Seeding initial menu items...');
     for (const item of initialMenuItems) {
